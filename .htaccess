@@ -1,0 +1,13 @@
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirige les requêtes vers index.php sans index.php dans l'URL
+    RewriteRule ^(.*)$ public/index.php [L]
+    
+    # Réécriture pour supporter les URL sans index.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
